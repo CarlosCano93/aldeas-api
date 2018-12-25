@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/aldeas?useLegacyDatetimeCode=false&serverTimezone=UTC
+    password: ccanomysql01
+    username: ccano
+    
+  jpa:
+    show-sql: true
+    
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+       
+  thymeleaf:
+    cache: false
+    
+  mail:
+    host: smtp.ionos.es
+    port: 587
+    username: contacto@heartofsouthamerica.org
+    password: Ccano_Agadea_2018
+    properties:
+      mail: 
+        smtp:
+          auth: true
+        starttls:
+          enable: true
