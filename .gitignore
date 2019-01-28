@@ -27,3 +27,6 @@
 ### Log ###
 *.log
 *log.*
+
+### Mail Password ###
+src/main/resources/mail.properties
