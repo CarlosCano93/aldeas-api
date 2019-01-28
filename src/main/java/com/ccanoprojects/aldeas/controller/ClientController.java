@@ -15,20 +15,24 @@ import com.ccanoprojects.aldeas.service.ClientService;
 import com.ccanoprojects.aldeas.service.EmailService;
 
 @RestController
-@RequestMapping("/api/clients")
+@RequestMapping("/api")
 public class ClientController {
+
+	@Autowired
+	private EmailService emailService;
 
 	@Autowired
 	@Qualifier("clientService")
 	private ClientService clientService;
 
-	@GetMapping("/get")
-	public List<Client> getClient() {
+	@GetMapping("/clients")
+	public List<Client> getClients() {
 		return clientService.findAll();
 	}
 
-	@PostMapping(value = "/add", consumes = "application/json")
+	@PostMapping(value = "/clients", consumes = "application/json")
 	public Client addClient(@RequestBody Client client) {
+		emailService.sendSimpleMessage(client.getEmail(), client.getName(), client.getMessage());
 		return clientService.addClient(client);
 	}
 }
