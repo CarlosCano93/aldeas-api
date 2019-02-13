@@ -72,7 +72,7 @@ public class EmailServiceImpl implements EmailService {
 
 			log.info("Mail sent successfully :)");
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error("Error sending mail: " + e.getMessage(), e);
 			e.printStackTrace();
 		}
 	}

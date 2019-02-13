@@ -34,8 +34,11 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public Client addClient(Client client) {
-		client.setCreated(new Timestamp(new Date().getTime()));
-		client.setUpdated(new Timestamp(new Date().getTime()));
+
+		Timestamp today = new Timestamp(new Date().getTime());
+
+		client.setCreated(today);
+		client.setUpdated(today);
 		client.setStatus(Client.RequestStatus.PENDING);
 		
 		log.info(client.toString());

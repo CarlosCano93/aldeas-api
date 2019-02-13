@@ -12,14 +12,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
 import org.hibernate.annotations.UpdateTimestamp;
 
+@Data
 @Entity
 @Table(name = "clients")
 public class Client {
 
 	public enum RequestStatus {
-		PENDING, PAYMENTPENDING, ACEPTED, REJECTED, INACTIVE
+		PENDING, PAYMENT_PENDING, ACEPTED, REJECTED, INACTIVE
 	}
 
 	@Id
@@ -42,8 +44,8 @@ public class Client {
 	@Column(name = "telephone", length = 20)
 	private String telephone;
 
-	@Column(name = "nacionality", length = 60)
-	private String nacionality;
+	@Column(name = "nationality", length = 60)
+	private String nationality;
 
 	@Column(name = "education", length = 100)
 	private String education;
@@ -73,142 +75,4 @@ public class Client {
 	@UpdateTimestamp
 	@Column(name = "updated")
 	private Timestamp updated;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public String getNacionality() {
-		return nacionality;
-	}
-
-	public void setNacionality(String nacionality) {
-		this.nacionality = nacionality;
-	}
-
-	public String getEducation() {
-		return education;
-	}
-
-	public void setEducation(String education) {
-		this.education = education;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public String getVolunteerExperience() {
-		return volunteerExperience;
-	}
-
-	public void setVolunteerExperience(String volunteerExperience) {
-		this.volunteerExperience = volunteerExperience;
-	}
-
-	public RequestStatus getStatus() {
-		return status;
-	}
-
-	public void setStatus(RequestStatus status) {
-		this.status = status;
-	}
-
-	public String getSpanishLevel() {
-		return spanishLevel;
-	}
-
-	public void setSpanishLevel(String spanishLevel) {
-		this.spanishLevel = spanishLevel;
-	}
-
-	public Timestamp getCreated() {
-		return created;
-	}
-
-	public void setCreated(Timestamp created) {
-		this.created = created;
-	}
-
-	public Timestamp getUpdated() {
-		return updated;
-	}
-
-	public void setUpdated(Timestamp updated) {
-		this.updated = updated;
-	}
-
-	public String getPlan() {
-		return plan;
-	}
-
-	public void setPlan(String plan) {
-		this.plan = plan;
-	}
-
-	public String getHowKnowUs() {
-		return howKnowUs;
-	}
-
-	public void setHowKnowUs(String howKnowUs) {
-		this.howKnowUs = howKnowUs;
-	}
-
-	@Override
-	public String toString() {
-		return "Client [id=" + id + ", name=" + name + ", lastName=" + lastName + ", email=" + email + ", birthday="
-				+ birthday + ", telephone=" + telephone + ", nacionality=" + nacionality + ", education=" + education
-				+ ", message=" + message + ", volunteerExperience=" + volunteerExperience + ", status=" + status
-				+ ", plan=" + plan + ", howKnowUs=" + howKnowUs + ", spanishLevel=" + spanishLevel + ", created="
-				+ created + ", updated=" + updated + "]";
-	}
-
 }

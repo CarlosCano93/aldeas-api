@@ -18,12 +18,14 @@ import com.ccanoprojects.aldeas.service.EmailService;
 @RequestMapping("/api")
 public class ClientController {
 
-	@Autowired
 	private EmailService emailService;
+	private ClientService clientService;
 
 	@Autowired
-	@Qualifier("clientService")
-	private ClientService clientService;
+	public ClientController(EmailService emailService, ClientService clientService) {
+		this.emailService = emailService;
+		this.clientService = clientService;
+	}
 
 	@GetMapping("/clients")
 	public List<Client> getClients() {
