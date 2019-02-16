@@ -1,15 +1,15 @@
 package com.ccanoprojects.aldeas.domain;
 
 import com.ccanoprojects.aldeas.domain.entity.Customer;
+import com.ccanoprojects.aldeas.domain.entity.RequestStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-@Service
 public class CustomersService {
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomersService.class);
 
@@ -24,7 +24,7 @@ public class CustomersService {
 
         customer.setCreated(today);
         customer.setUpdated(today);
-        customer.setStatus(Customer.RequestStatus.PENDING);
+        customer.setStatus(RequestStatus.PENDING);
 
         LOGGER.info(customer.toString());
 
@@ -32,6 +32,7 @@ public class CustomersService {
     }
 
     public Customer findCustomerById(int id) {
+        LOGGER.info("Searching... Customer: " + id);
         return customersRepository.findById(id);
     }
 

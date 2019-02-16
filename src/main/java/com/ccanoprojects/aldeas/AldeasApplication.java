@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AldeasApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AldeasApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AldeasApplication.class, args);
+    }
 }

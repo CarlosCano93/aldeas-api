@@ -2,6 +2,16 @@ logging:
   file: spring.log
 
 spring:
-  h2:
-    console:
-      enabled=true:
+  datasource:
+    url: jdbc:mysql://localhost:3306/aldeas?useLegacyDatetimeCode=false&serverTimezone=UTC
+    password: ccanomysql01
+    username: ccano
+
+  jpa:
+    show-sql: true
+
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect

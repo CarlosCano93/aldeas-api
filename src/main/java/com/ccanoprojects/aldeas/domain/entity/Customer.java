@@ -13,6 +13,28 @@ import java.util.Date;
 @Entity
 public class Customer {
 
+    public Customer() {
+    }
+
+    public Customer(int id, String name, String lastName, String email, Date birthday, String telephone, String nationality, String education, String message, String volunteerExperience, RequestStatus status, String plan, String howKnowUs, String spanishLevel, Timestamp created, Timestamp updated) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.birthday = birthday;
+        this.telephone = telephone;
+        this.nationality = nationality;
+        this.education = education;
+        this.message = message;
+        this.volunteerExperience = volunteerExperience;
+        this.status = status;
+        this.plan = plan;
+        this.howKnowUs = howKnowUs;
+        this.spanishLevel = spanishLevel;
+        this.created = created;
+        this.updated = updated;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
@@ -65,11 +87,4 @@ public class Customer {
     @Column(name = "updated")
     private Timestamp updated;
 
-    public enum RequestStatus {
-        PENDING,
-        PAYMENT_PENDING,
-        ACEPTED,
-        REJECTED,
-        INACTIVE
-    }
 }
