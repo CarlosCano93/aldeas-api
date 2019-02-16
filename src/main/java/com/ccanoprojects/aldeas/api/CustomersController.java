@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/customers")
 public class CustomersController {
 
     private CustomersService customersService;
@@ -16,23 +16,18 @@ public class CustomersController {
         this.customersService = customersService;
     }
 
-    @GetMapping("/status")
-    public String status() {
-        return "OK";
-    }
-
-    @GetMapping("/customers")
+    @GetMapping
     public List<Customer> getAll() {
         return customersService.findAll();
     }
 
-    @PostMapping(value = "/customers")
+    @PostMapping
     public Customer post(@RequestBody Customer customer) {
         //emailService.sendMailToHearthOfSouthAmericaFrom(customer);
         return customersService.save(customer);
     }
 
-    @GetMapping(value = "/customers/{id}")
+    @GetMapping(value = "/{id}")
     public Customer getById(@PathVariable Integer id) {
         return customersService.findCustomerById(id);
     }

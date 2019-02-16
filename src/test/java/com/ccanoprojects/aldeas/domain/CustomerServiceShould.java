@@ -33,7 +33,7 @@ public class CustomerServiceShould {
             .email(CUSTOMER_2_EMAIL).build();
 
     private static final List<Customer> ALL_CUSTOMERS = List.of(CUSTOMER_1, CUSTOMER_2);
-    
+
     @Mock CustomersRepository customerRepository;
 
     private CustomersService customersService;

@@ -1,4 +1,4 @@
-package com.ccanoprojects.aldeas.api;
+package com.ccanoprojects.aldeas;
 
 import com.ccanoprojects.aldeas.domain.CustomersRepository;
 import com.ccanoprojects.aldeas.domain.entity.Customer;
@@ -16,7 +16,8 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -74,12 +75,6 @@ public class CustomersControllerShould {
                 .andExpect(jsonPath("$", hasSize(3)))
                 .andExpect(jsonPath("$.[0].name", is(CUSTOMER_1.getName())))
                 .andExpect(jsonPath("$.[2].name", is(CUSTOMER_3.getName())));
-    }
-
-    @Test public void
-    return_status_ok() throws Exception {
-        mvc.perform(get("/v1/status")).andExpect(status().isOk())
-        .andExpect(content().string("OK"));
     }
 
     private String jsonContaining(Customer customer) {

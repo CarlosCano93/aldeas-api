@@ -2,7 +2,6 @@ package com.ccanoprojects.aldeas.domain;
 
 import com.ccanoprojects.aldeas.domain.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.List;
