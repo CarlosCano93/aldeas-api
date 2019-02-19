@@ -11,9 +11,9 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:mail.properties")
 public class AldeasConfiguration {
 
-    @Autowired private CustomersRepository customerRepository;
-
-    @Bean CustomersService customersService() {
+    @Bean
+    @Autowired
+    CustomersService customersService(CustomersRepository customerRepository) {
         return new CustomersService(customerRepository);
     }
 
