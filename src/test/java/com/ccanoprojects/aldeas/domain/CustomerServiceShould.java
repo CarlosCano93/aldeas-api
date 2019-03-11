@@ -4,6 +4,7 @@ import com.ccanoprojects.aldeas.domain.entity.Customer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -36,12 +37,7 @@ public class CustomerServiceShould {
 
     @Mock CustomersRepository customerRepository;
 
-    private CustomersService customersService;
-
-    @Before public void
-    initialize() {
-        customersService = new CustomersService(customerRepository);
-    }
+    @InjectMocks CustomersService customersService;
 
     @Test public void
     create_new_user() {
