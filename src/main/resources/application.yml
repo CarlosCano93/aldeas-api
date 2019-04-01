@@ -1,13 +1,15 @@
-logging:  file: spring.log
+logging:
+  file: spring.log
 
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/aldeas?useLegacyDatetimeCode=false&serverTimezone=UTC
     password: ccanomysql01
     username: ccano
-    
-  jpa:    show-sql: true
-    
+
+  jpa:
+    show-sql: true
+
     hibernate:
       ddl-auto: update
     properties:
